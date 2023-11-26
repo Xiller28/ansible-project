@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+    - copy:
+        src: /home/ubuntu/abc.txt
+        dest: /home/ubuntu
+        owner: ubuntu
+        group: ubuntu
+        mode: 777  
