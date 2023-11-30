@@ -6,3 +6,6 @@
         owner: ubuntu
         group: ubuntu
         mode: 777  
+    - file:
+        path: /home/ubuntu/playbooks
+        state: directory

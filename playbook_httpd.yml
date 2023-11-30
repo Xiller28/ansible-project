@@ -1,0 +1,21 @@
+- hosts: all
+  tasks:
+    - package:
+       name: apache2
+       state: latest
+    - copy:
+         src: /sourcecode/
+         dest: /var/www/html
+    -lineinfile:
+         path: /etc/httpd/conf/httpd.conf
+         regexp: '^#?Listen '
+         insertafter: '^#Listen '
+         line: 'Listen 8080'
+    - firewalld:
+         port: 8080/tcp
+         permanent: true
+         state: enabled
+         immediate: true
+     - service:
+          name: apache2
+          state: started
